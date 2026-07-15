@@ -10,30 +10,24 @@ index c765756e..51017d64 100644
  kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 \ No newline at end of file
 diff --git a/main/build.gradle.kts b/main/build.gradle.kts
-index 0cb27409..5723adcb 100644
+index 0cb27409..5b7377da 100644
 --- a/main/build.gradle.kts
 +++ b/main/build.gradle.kts
-@@ -7,9 +7,17 @@ import org.gradle.api.tasks.TaskProvider
-  * Distributed under the GNU GPL v2 with additional terms. For full terms see the file doc/LICENSE.txt
+@@ -8,10 +8,11 @@ import org.gradle.api.tasks.TaskProvider
   */
  
-+val isEmbeddedLibrary = project.name == "openvpn"
-+
  plugins {
 -    alias(libs.plugins.android.application)
 -    id("checkstyle")
-+    if (isEmbeddedLibrary) {
-+        alias(libs.plugins.android.library)
-+    } else {
-+        alias(libs.plugins.android.application)
-+    }
-+    if (!isEmbeddedLibrary) {
-+        id("checkstyle")
-+    }
++    alias(libs.plugins.android.library)
  }
  
++val isEmbeddedLibrary = project.name == "openvpn"
++
  
-@@ -137,12 +145,14 @@ android {
+ fun obtainTestBuildType(): String {
+     var result = "debug";
+@@ -137,12 +138,14 @@ android {
  
      buildTypes {
          getByName("release") {
@@ -54,7 +48,7 @@ index 0cb27409..5723adcb 100644
              }
          }
      }
-@@ -154,12 +164,14 @@ android {
+@@ -154,12 +157,14 @@ android {
          sourceCompatibility = JavaVersion.VERSION_17
      }
  
@@ -75,7 +69,7 @@ index 0cb27409..5723adcb 100644
          }
      }
  
-@@ -169,31 +181,33 @@ android {
+@@ -169,31 +174,33 @@ android {
          }
      }
  
