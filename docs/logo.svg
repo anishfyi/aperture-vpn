@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Aperture VPN logo">
+  <circle cx="120" cy="120" r="112" fill="#000000" stroke="#ffffff" stroke-width="3"/>
+  <g stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none">
+    <line x1="120" y1="17" x2="163.7" y2="83.4"/>
+    <line x1="209.2" y1="68.5" x2="173.6" y2="139.5"/>
+    <line x1="209.2" y1="171.5" x2="129.9" y2="176.1"/>
+    <line x1="120" y1="223" x2="76.3" y2="156.6"/>
+    <line x1="30.8" y1="171.5" x2="66.4" y2="100.5"/>
+    <line x1="30.8" y1="68.5" x2="110.1" y2="63.9"/>
+  </g>
+  <g stroke="#ffffff" stroke-width="3" fill="none">
+    <circle cx="120" cy="120" r="54"/>
+    <ellipse cx="120" cy="120" rx="22" ry="54"/>
+    <ellipse cx="120" cy="120" rx="54" ry="20"/>
+  </g>
+</svg>

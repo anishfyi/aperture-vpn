@@ -1,4 +1,8 @@
-# Aperture VPN
+<p align="center">
+  <img src="docs/logo.svg" width="150" alt="Aperture VPN logo">
+</p>
+
+<h1 align="center">Aperture VPN</h1>
 
 Free, open-source Android VPN that aggregates 100+ free OpenVPN profiles from
 [VPN Gate](https://www.vpngate.net/), probes and ranks servers, connects to the
