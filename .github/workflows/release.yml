@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Patch ics-openvpn for embedded library
+        run: git -C vendor/ics-openvpn apply ../../patches/ics-openvpn-embedded.patch
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install build tools
+        run: |
+          sdkmanager "platforms;android-37" "build-tools;35.0.0" "ndk;30.0.14904198"
+          sudo apt-get update
+          sudo apt-get install -y swig
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 9.5.1
+
+      - name: Assemble release APK
+        run: gradle :app:assembleSkeletonOvpn23Release --stacktrace
+
+      - name: Sign release APK
+        uses: r0adkll/sign-android-release@v1
+        id: sign
+        with:
+          releaseDirectory: app/build/outputs/apk/skeletonOvpn23/release
+          signingKeyBase64: ${{ secrets.KEYSTORE_BASE64 }}
+          alias: ${{ secrets.KEY_ALIAS }}
+          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+        env:
+          BUILD_TOOLS_VERSION: "35.0.0"
+
+      - name: Generate checksums
+        run: |
+          apk="${{ steps.sign.outputs.signedReleaseFile }}"
+          dir="$(dirname "$apk")"
+          (cd "$dir" && sha256sum "$(basename "$apk")" > checksums.txt)
+          echo "APK_DIR=$dir" >> "$GITHUB_ENV"
+
+      - name: Upload release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ${{ steps.sign.outputs.signedReleaseFile }}
+            ${{ env.APK_DIR }}/checksums.txt

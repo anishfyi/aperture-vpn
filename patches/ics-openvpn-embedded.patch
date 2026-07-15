@@ -1,0 +1,136 @@
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+index c765756e..51017d64 100644
+--- a/gradle/libs.versions.toml
++++ b/gradle/libs.versions.toml
+@@ -58,4 +58,5 @@ robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "
+ 
+ [plugins]
+ android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
++android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
+ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+\ No newline at end of file
+diff --git a/main/build.gradle.kts b/main/build.gradle.kts
+index 0cb27409..5723adcb 100644
+--- a/main/build.gradle.kts
++++ b/main/build.gradle.kts
+@@ -7,9 +7,17 @@ import org.gradle.api.tasks.TaskProvider
+  * Distributed under the GNU GPL v2 with additional terms. For full terms see the file doc/LICENSE.txt
+  */
+ 
++val isEmbeddedLibrary = project.name == "openvpn"
++
+ plugins {
+-    alias(libs.plugins.android.application)
+-    id("checkstyle")
++    if (isEmbeddedLibrary) {
++        alias(libs.plugins.android.library)
++    } else {
++        alias(libs.plugins.android.application)
++    }
++    if (!isEmbeddedLibrary) {
++        id("checkstyle")
++    }
+ }
+ 
+ 
+@@ -137,12 +145,14 @@ android {
+ 
+     buildTypes {
+         getByName("release") {
+-            if (project.hasProperty("icsopenvpnDebugSign")) {
+-                logger.warn("property icsopenvpnDebugSign set, using debug signing for release")
+-                signingConfig = android.signingConfigs.getByName("debug")
+-            } else {
+-                productFlavors["ovpn23"].signingConfig = signingConfigs.getByName("release")
+-                productFlavors["ovpn2"].signingConfig = signingConfigs.getByName("releaseOvpn2")
++            if (!isEmbeddedLibrary) {
++                if (project.hasProperty("icsopenvpnDebugSign")) {
++                    logger.warn("property icsopenvpnDebugSign set, using debug signing for release")
++                    signingConfig = android.signingConfigs.getByName("debug")
++                } else {
++                    productFlavors["ovpn23"].signingConfig = signingConfigs.getByName("release")
++                    productFlavors["ovpn2"].signingConfig = signingConfigs.getByName("releaseOvpn2")
++                }
+             }
+         }
+     }
+@@ -154,12 +164,14 @@ android {
+         sourceCompatibility = JavaVersion.VERSION_17
+     }
+ 
+-    splits {
+-        abi {
+-            isEnable = true
+-            reset()
+-            include("x86", "x86_64", "armeabi-v7a", "arm64-v8a")
+-            isUniversalApk = true
++    if (!isEmbeddedLibrary) {
++        splits {
++            abi {
++                isEnable = true
++                reset()
++                include("x86", "x86_64", "armeabi-v7a", "arm64-v8a")
++                isUniversalApk = true
++            }
+         }
+     }
+ 
+@@ -169,31 +181,33 @@ android {
+         }
+     }
+ 
+-    bundle {
+-        codeTransparency {
+-            signing {
+-                val keystoreTPFile: String? by project
+-                storeFile = keystoreTPFile?.let { file(it) }
+-                val keystoreTPPassword: String? by project
+-                storePassword = keystoreTPPassword
+-                val keystoreTPAliasPassword: String? by project
+-                keyPassword = keystoreTPAliasPassword
+-                val keystoreTPAlias: String? by project
+-                keyAlias = keystoreTPAlias
+-
+-                if (keystoreTPFile?.isEmpty()
+-                        ?: true
+-                ) println("keystoreTPFile not set, disabling transparency signing")
+-                if (keystoreTPPassword?.isEmpty()
+-                        ?: true
+-                ) println("keystoreTPPassword not set, disabling transparency signing")
+-                if (keystoreTPAliasPassword?.isEmpty()
+-                        ?: true
+-                ) println("keystoreTPAliasPassword not set, disabling transparency signing")
+-                if (keystoreTPAlias?.isEmpty()
+-                        ?: true
+-                ) println("keyAlias not set, disabling transparency signing")
+-
++    if (!isEmbeddedLibrary) {
++        bundle {
++            codeTransparency {
++                signing {
++                    val keystoreTPFile: String? by project
++                    storeFile = keystoreTPFile?.let { file(it) }
++                    val keystoreTPPassword: String? by project
++                    storePassword = keystoreTPPassword
++                    val keystoreTPAliasPassword: String? by project
++                    keyPassword = keystoreTPAliasPassword
++                    val keystoreTPAlias: String? by project
++                    keyAlias = keystoreTPAlias
++
++                    if (keystoreTPFile?.isEmpty()
++                            ?: true
++                    ) println("keystoreTPFile not set, disabling transparency signing")
++                    if (keystoreTPPassword?.isEmpty()
++                            ?: true
++                    ) println("keystoreTPPassword not set, disabling transparency signing")
++                    if (keystoreTPAliasPassword?.isEmpty()
++                            ?: true
++                    ) println("keystoreTPAliasPassword not set, disabling transparency signing")
++                    if (keystoreTPAlias?.isEmpty()
++                            ?: true
++                    ) println("keyAlias not set, disabling transparency signing")
++
++                }
+             }
+         }
+     }

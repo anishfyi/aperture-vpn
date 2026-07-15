@@ -1,0 +1,25 @@
+package io.github.anishfyi.aperture
+
+import android.app.Application
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.os.Build
+import de.blinkt.openvpn.core.StatusListener
+
+class ApertureApp : Application() {
+    private var statusListener: StatusListener? = null
+
+    override fun onCreate() {
+        super.onCreate()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                "openvpn",
+                "VPN status",
+                NotificationManager.IMPORTANCE_LOW,
+            )
+            val manager = getSystemService(NotificationManager::class.java)
+            manager?.createNotificationChannel(channel)
+        }
+        statusListener = StatusListener().also { it.init(applicationContext) }
+    }
+}

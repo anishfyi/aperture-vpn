@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aperture VPN</title>
+  <style>
+    :root {
+      --bg: #000000;
+      --fg: #ffffff;
+      --muted: #888888;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: var(--fg); }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
+    header { text-align: center; padding: 3rem 0 2rem; }
+    h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; letter-spacing: 0.02em; }
+    .tagline { color: var(--muted); margin-top: 0.75rem; font-size: 1.05rem; }
+    .globe-wrap { display: flex; justify-content: center; margin: 2rem 0; }
+    .globe { width: min(220px, 60vw); height: min(220px, 60vw); }
+    .globe-spin { transform-origin: 110px 110px; animation: spin 24s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) {
+      .globe-spin { animation: none; }
+    }
+    .features { margin: 2.5rem 0; }
+    .features h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+    .features ul { list-style: none; }
+    .features li {
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--muted);
+      font-size: 1rem;
+    }
+    .features li:last-child { border-bottom: none; }
+    .cta { text-align: center; margin: 2.5rem 0; }
+    .btn {
+      display: inline-block;
+      padding: 0.9rem 1.8rem;
+      border: 2px solid var(--fg);
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: background 0.15s, color 0.15s;
+    }
+    .btn:hover, .btn:focus { background: var(--fg); color: var(--bg); }
+    .source { text-align: center; margin-top: 1rem; font-size: 0.95rem; color: var(--muted); }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--muted);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer p + p { margin-top: 0.75rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="globe-wrap">
+        <svg class="globe" viewBox="0 0 220 220" aria-hidden="true">
+          <circle cx="110" cy="110" r="95" fill="none" stroke="#ffffff" stroke-width="2"/>
+          <g class="globe-spin">
+            <ellipse cx="110" cy="110" rx="95" ry="30" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+            <ellipse cx="110" cy="110" rx="95" ry="55" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+            <ellipse cx="110" cy="110" rx="95" ry="78" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+            <ellipse cx="110" cy="110" rx="30" ry="95" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+            <ellipse cx="110" cy="110" rx="55" ry="95" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+            <ellipse cx="110" cy="110" rx="78" ry="95" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+            <line x1="15" y1="110" x2="205" y2="110" stroke="#ffffff" stroke-width="1.2"/>
+          </g>
+        </svg>
+      </div>
+      <h1>Aperture VPN</h1>
+      <p class="tagline">Free OpenVPN for Android. One tap to the best server. AdGuard DNS built in.</p>
+    </header>
+
+    <section class="features">
+      <h2>Features</h2>
+      <ul>
+        <li>100+ free OpenVPN profiles from VPN Gate</li>
+        <li>Best-server auto-connect with live probing</li>
+        <li>AdGuard DNS ad and tracker blocking</li>
+        <li>Open source under GPL-2.0-or-later</li>
+        <li>No accounts, no trackers</li>
+      </ul>
+    </section>
+
+    <div class="cta">
+      <a class="btn" href="https://github.com/anishfyi/aperture-vpn/releases/latest">Download APK</a>
+      <p class="source">
+        <a href="https://github.com/anishfyi/aperture-vpn">View source on GitHub</a>
+      </p>
+    </div>
+
+    <footer>
+      <p>Licensed under GNU General Public License v2.0 or later (GPL-2.0-or-later).</p>
+      <p>Servers are operated by third-party VPN Gate volunteers. Logging policies vary. No uptime guarantee.</p>
+    </footer>
+  </div>
+</body>
+</html>
