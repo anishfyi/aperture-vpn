@@ -18,6 +18,9 @@ jobs:
       - name: Patch ics-openvpn for embedded library
         run: git -C vendor/ics-openvpn apply ../../patches/ics-openvpn-embedded.patch
 
+      - name: Drop vendored Gradle wrapper jar (snapshot build, unvalidatable, never executed)
+        run: rm -f vendor/ics-openvpn/gradle/wrapper/gradle-wrapper.jar
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
