@@ -28,7 +28,7 @@ jobs:
 
       - name: Install build tools
         run: |
-          sdkmanager "platforms;android-37" "build-tools;35.0.0" "ndk;30.0.14904198"
+          sdkmanager "platforms;android-37.0" "build-tools;35.0.0" "ndk;30.0.14904198"
           sudo apt-get update
           sudo apt-get install -y swig
 
