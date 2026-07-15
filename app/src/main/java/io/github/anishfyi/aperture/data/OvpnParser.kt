@@ -2,7 +2,8 @@ package io.github.anishfyi.aperture.data
 
 object OvpnParser {
     private val remoteRegex = Regex("""^remote\s+(\S+)\s+(\d+)\s*$""", RegexOption.MULTILINE)
-    private val protoRegex = Regex("""^proto\s+(tcp|udp)\s*$""", RegexOption.IGNORE_CASE or RegexOption.MULTILINE)
+    private val protoRegex =
+        Regex("""^proto\s+(tcp|udp)""", setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 
     const val DNS1 = "94.140.14.14"
     const val DNS2 = "94.140.15.15"

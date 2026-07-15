@@ -4,10 +4,9 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
-import de.blinkt.openvpn.core.StatusListener
+import de.blinkt.openvpn.core.VpnStatusBootstrap
 
 class ApertureApp : Application() {
-    private var statusListener: StatusListener? = null
 
     override fun onCreate() {
         super.onCreate()
@@ -20,6 +19,6 @@ class ApertureApp : Application() {
             val manager = getSystemService(NotificationManager::class.java)
             manager?.createNotificationChannel(channel)
         }
-        statusListener = StatusListener().also { it.init(applicationContext) }
+        VpnStatusBootstrap.start(applicationContext)
     }
 }
