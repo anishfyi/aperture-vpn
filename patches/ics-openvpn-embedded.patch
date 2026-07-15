@@ -10,7 +10,7 @@ index c765756e..51017d64 100644
  kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 \ No newline at end of file
 diff --git a/main/build.gradle.kts b/main/build.gradle.kts
-index 0cb27409..5b7377da 100644
+index 0cb27409..1f3bef00 100644
 --- a/main/build.gradle.kts
 +++ b/main/build.gradle.kts
 @@ -8,10 +8,11 @@ import org.gradle.api.tasks.TaskProvider
@@ -27,7 +27,25 @@ index 0cb27409..5b7377da 100644
  
  fun obtainTestBuildType(): String {
      var result = "debug";
-@@ -137,12 +138,14 @@ android {
+@@ -36,10 +37,6 @@ android {
+ 
+     defaultConfig {
+         minSdk = 23
+-        targetSdk = 37
+-        //targetSdkPreview = "UpsideDownCake"
+-        versionCode = 219
+-        versionName = "0.7.64"
+         externalNativeBuild {
+             cmake {
+                 //arguments+= "-DCMAKE_VERBOSE_MAKEFILE=1"
+@@ -130,19 +127,20 @@ android {
+ 
+         create("ovpn2") {
+             dimension = "ovpnimpl"
+-            versionNameSuffix = "-o2"
+             buildConfigField("boolean", "openvpn3", "false")
+         }
+     }
  
      buildTypes {
          getByName("release") {
@@ -48,7 +66,7 @@ index 0cb27409..5b7377da 100644
              }
          }
      }
-@@ -154,12 +157,14 @@ android {
+@@ -154,12 +152,14 @@ android {
          sourceCompatibility = JavaVersion.VERSION_17
      }
  
@@ -69,7 +87,7 @@ index 0cb27409..5b7377da 100644
          }
      }
  
-@@ -169,31 +174,33 @@ android {
+@@ -169,34 +169,6 @@ android {
          }
      }
  
@@ -98,33 +116,9 @@ index 0cb27409..5b7377da 100644
 -                        ?: true
 -                ) println("keyAlias not set, disabling transparency signing")
 -
-+    if (!isEmbeddedLibrary) {
-+        bundle {
-+            codeTransparency {
-+                signing {
-+                    val keystoreTPFile: String? by project
-+                    storeFile = keystoreTPFile?.let { file(it) }
-+                    val keystoreTPPassword: String? by project
-+                    storePassword = keystoreTPPassword
-+                    val keystoreTPAliasPassword: String? by project
-+                    keyPassword = keystoreTPAliasPassword
-+                    val keystoreTPAlias: String? by project
-+                    keyAlias = keystoreTPAlias
-+
-+                    if (keystoreTPFile?.isEmpty()
-+                            ?: true
-+                    ) println("keystoreTPFile not set, disabling transparency signing")
-+                    if (keystoreTPPassword?.isEmpty()
-+                            ?: true
-+                    ) println("keystoreTPPassword not set, disabling transparency signing")
-+                    if (keystoreTPAliasPassword?.isEmpty()
-+                            ?: true
-+                    ) println("keystoreTPAliasPassword not set, disabling transparency signing")
-+                    if (keystoreTPAlias?.isEmpty()
-+                            ?: true
-+                    ) println("keyAlias not set, disabling transparency signing")
-+
-+                }
-             }
-         }
-     }
+-            }
+-        }
+-    }
+ }
+ 
+ var swigcmd = "swig"
