@@ -11,6 +11,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import io.github.anishfyi.aperture.ui.ApertureViewModel
+import io.github.anishfyi.aperture.ui.screens.CrashScreen
 import io.github.anishfyi.aperture.ui.screens.HomeScreen
 import io.github.anishfyi.aperture.ui.screens.ServersScreen
 import io.github.anishfyi.aperture.ui.screens.SetupScreen
@@ -22,7 +23,14 @@ fun ApertureNavHost(viewModel: ApertureViewModel) {
     var showLocations by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(containerColor = ApertureColors.Background) { padding ->
-        if (!uiState.setupComplete) {
+        val crash = uiState.lastCrash
+        if (crash != null) {
+            CrashScreen(
+                trace = crash,
+                onDismiss = viewModel::dismissCrash,
+                modifier = Modifier.padding(padding),
+            )
+        } else if (!uiState.setupComplete) {
             SetupScreen(
                 statusLine = uiState.setupStatus,
                 modifier = Modifier.padding(padding),

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.VpnService
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import io.github.anishfyi.aperture.CrashLog
 import io.github.anishfyi.aperture.data.ConnectionState
 import io.github.anishfyi.aperture.data.RankedServer
 import io.github.anishfyi.aperture.data.ServerProfile
@@ -28,6 +29,7 @@ data class ApertureUiState(
     val errorMessage: String? = null,
     val setupComplete: Boolean = false,
     val setupStatus: String = "Starting up",
+    val lastCrash: String? = null,
 )
 
 class ApertureViewModel(application: Application) : AndroidViewModel(application) {
@@ -42,6 +44,7 @@ class ApertureViewModel(application: Application) : AndroidViewModel(application
     private var vpnPermissionLauncher: ((Intent) -> Unit)? = null
 
     init {
+        _uiState.update { it.copy(lastCrash = CrashLog.read(application)) }
         viewModelScope.launch {
             connectionManager.connectionState.collect { state ->
                 _uiState.update { it.copy(connectionState = state) }
@@ -61,6 +64,11 @@ class ApertureViewModel(application: Application) : AndroidViewModel(application
 
     fun setVpnPermissionLauncher(launcher: (Intent) -> Unit) {
         vpnPermissionLauncher = launcher
+    }
+
+    fun dismissCrash() {
+        CrashLog.clear(getApplication())
+        _uiState.update { it.copy(lastCrash = null) }
     }
 
     fun bootstrap() {

@@ -38,15 +38,42 @@
             android:exported="false"
             android:targetActivity=".MainActivity" />
 
+        <!--
+          Run every OpenVPN component in the main app process, not the vendor's
+          default ":openvpn" child process. The child process re-runs our
+          Application from scratch; consolidating into the already-initialized
+          main process removes that startup variable and keeps the VPN service
+          in the same process as the UI that started it.
+        -->
         <service
             android:name="de.blinkt.openvpn.core.OpenVPNService"
             android:exported="true"
             android:foregroundServiceType="specialUse"
             android:permission="android.permission.BIND_VPN_SERVICE"
-            tools:node="merge">
+            android:process="io.github.anishfyi.aperture"
+            tools:node="merge"
+            tools:replace="android:process">
             <property
                 android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
                 android:value="vpn" />
         </service>
+
+        <service
+            android:name="de.blinkt.openvpn.core.OpenVPNStatusService"
+            android:process="io.github.anishfyi.aperture"
+            tools:node="merge"
+            tools:replace="android:process" />
+
+        <service
+            android:name="de.blinkt.openvpn.core.keepVPNAlive"
+            android:process="io.github.anishfyi.aperture"
+            tools:node="merge"
+            tools:replace="android:process" />
+
+        <service
+            android:name="de.blinkt.openvpn.api.ExternalOpenVPNService"
+            android:process="io.github.anishfyi.aperture"
+            tools:node="merge"
+            tools:replace="android:process" />
     </application>
 </manifest>

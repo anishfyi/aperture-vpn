@@ -11,6 +11,7 @@ class ApertureApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        CrashLog.install(this)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createOpenVpnNotificationChannels()
         }
