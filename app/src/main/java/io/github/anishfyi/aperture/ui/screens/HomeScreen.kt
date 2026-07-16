@@ -43,19 +43,12 @@ fun HomeScreen(
     ) {
         Text(
             text = "APRTR",
-            fontSize = 44.sp,
+            fontSize = 40.sp,
             fontWeight = FontWeight.Bold,
-            letterSpacing = 0.18.em,
+            letterSpacing = 0.32.em,
             color = ApertureColors.Foreground,
         )
-        Text(
-            text = "VPN",
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Medium,
-            letterSpacing = 0.6.em,
-            color = ApertureColors.Foreground,
-        )
-        Spacer(modifier = Modifier.height(48.dp))
+        Spacer(modifier = Modifier.height(52.dp))
 
         val connected = uiState.connectionState == ConnectionState.CONNECTED
         val busy = uiState.connectionState == ConnectionState.CONNECTING ||

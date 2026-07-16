@@ -1,19 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="640" height="640" role="img" aria-label="APRTR VPN logo">
-  <rect width="640" height="640" fill="#000000"/>
-  <g stroke="#ffffff" stroke-width="20" fill="none" stroke-linecap="butt">
-    <path d="M95,350 L130,250 L165,350"/>
-    <path d="M105.5,320 L154.5,320"/>
-    <path d="M200,350 L200,260 L238,260 C256,260 256,304 238,304 L200,304"/>
-    <path d="M295,350 L295,260 L333,260 C351,260 351,304 333,304 L295,304"/>
-    <path d="M331,304 L353,350"/>
-    <path d="M380,260 L450,260"/>
-    <path d="M415,260 L415,350"/>
-    <path d="M485,350 L485,260 L523,260 C541,260 541,304 523,304 L485,304"/>
-    <path d="M521,304 L543,350"/>
-  </g>
-  <g stroke="#ffffff" stroke-width="8.5" fill="none" stroke-linecap="butt">
-    <path d="M254.9,420.0 L269.6,462.0 L284.3,420.0"/>
-    <path d="M309.5,462.0 L309.5,424.2 L325.5,424.2 C333.0,424.2 333.0,442.7 325.5,442.7 L309.5,442.7"/>
-    <path d="M359.9,462.0 L359.9,420.0 L380.9,462.0 L380.9,420.0"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 240" width="640" height="240" role="img" aria-label="APRTR">
+  <rect width="640" height="240" fill="#000000"/>
+  <text x="320" y="120" fill="#ffffff" font-family="'Space Grotesk', system-ui, sans-serif"
+        font-size="120" font-weight="700" letter-spacing="34" text-anchor="middle"
+        dominant-baseline="central" dx="17">APRTR</text>
 </svg>

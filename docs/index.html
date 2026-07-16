@@ -6,6 +6,12 @@
   <title>APRTR VPN</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23000'/%3E%3Cg stroke='%23fff' stroke-width='12' fill='none'%3E%3Cpath d='M15 85L50 10L85 85'/%3E%3Cpath d='M30 62L70 62'/%3E%3C/g%3E%3C/svg%3E">
   <style>
+    @font-face {
+      font-family: "Space Grotesk";
+      src: url("space_grotesk.ttf") format("truetype");
+      font-weight: 300 700;
+      font-display: swap;
+    }
     :root {
       --bg: #000000;
       --fg: #ffffff;
@@ -15,17 +21,15 @@
     body {
       background: var(--bg);
       color: var(--fg);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-family: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       line-height: 1.6;
       min-height: 100vh;
     }
     a { color: var(--fg); }
     .wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem 3rem; }
-    header { text-align: center; padding: 3rem 0 2rem; }
-    h1 { font-size: clamp(2rem, 6vw, 3rem); font-weight: 700; letter-spacing: 0.02em; }
-    .tagline { color: var(--muted); margin-top: 0.75rem; font-size: 1.05rem; }
-    .globe-wrap { display: flex; justify-content: center; margin: 2rem 0; }
-    .globe { width: min(260px, 70vw); height: min(260px, 70vw); }
+    header { text-align: center; padding: 4rem 0 2rem; }
+    .brand { font-size: clamp(3rem, 12vw, 5.5rem); font-weight: 700; letter-spacing: 0.34em; margin-right: -0.34em; }
+    .tagline { color: var(--muted); margin-top: 1.5rem; font-size: 1.05rem; }
     .features { margin: 2.5rem 0; }
     .features h2 { font-size: 1.25rem; margin-bottom: 1rem; }
     .features ul { list-style: none; }
@@ -61,28 +65,7 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="globe-wrap">
-        <svg class="globe" viewBox="0 0 640 640" role="img" aria-label="APRTR VPN logo">
-          <rect width="640" height="640" fill="#000000"/>
-          <g stroke="#ffffff" stroke-width="20" fill="none" stroke-linecap="butt">
-            <path d="M95,350 L130,250 L165,350"/>
-            <path d="M105.5,320 L154.5,320"/>
-            <path d="M200,350 L200,260 L238,260 C256,260 256,304 238,304 L200,304"/>
-            <path d="M295,350 L295,260 L333,260 C351,260 351,304 333,304 L295,304"/>
-            <path d="M331,304 L353,350"/>
-            <path d="M380,260 L450,260"/>
-            <path d="M415,260 L415,350"/>
-            <path d="M485,350 L485,260 L523,260 C541,260 541,304 523,304 L485,304"/>
-            <path d="M521,304 L543,350"/>
-          </g>
-          <g stroke="#ffffff" stroke-width="8.5" fill="none" stroke-linecap="butt">
-            <path d="M254.9,420.0 L269.6,462.0 L284.3,420.0"/>
-            <path d="M309.5,462.0 L309.5,424.2 L325.5,424.2 C333.0,424.2 333.0,442.7 325.5,442.7 L309.5,442.7"/>
-            <path d="M359.9,462.0 L359.9,420.0 L380.9,462.0 L380.9,420.0"/>
-          </g>
-        </svg>
-      </div>
-      <h1>APRTR VPN</h1>
+      <div class="brand">APRTR</div>
       <p class="tagline">Free OpenVPN for Android. One tap to the best server. AdGuard DNS built in.</p>
     </header>
 

@@ -31,6 +31,7 @@ object ApertureColors {
 fun ApertureTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = ApertureColorScheme,
+        typography = ApertureTypography,
         content = content,
     )
 }

@@ -26,6 +26,8 @@ data class ApertureUiState(
     val isRefreshing: Boolean = false,
     val profileCount: Int = 0,
     val errorMessage: String? = null,
+    val setupComplete: Boolean = false,
+    val setupStatus: String = "Starting up",
 )
 
 class ApertureViewModel(application: Application) : AndroidViewModel(application) {
@@ -62,7 +64,38 @@ class ApertureViewModel(application: Application) : AndroidViewModel(application
     }
 
     fun bootstrap() {
-        refresh(force = false)
+        if (_uiState.value.setupComplete) return
+        viewModelScope.launch {
+            _uiState.update { it.copy(setupStatus = "Loading server list", isRefreshing = true) }
+            runCatching {
+                val profiles = fetcher.getProfiles(forceRefresh = true)
+                _uiState.update {
+                    it.copy(setupStatus = "Testing ${profiles.size} servers", profileCount = profiles.size)
+                }
+                val probes = prober.probeAll(profiles)
+                val ranked = Scorer.rank(profiles, probes)
+                _uiState.update {
+                    it.copy(
+                        rankedServers = ranked,
+                        profileCount = profiles.size,
+                        isRefreshing = false,
+                        setupComplete = true,
+                        setupStatus = "Ready",
+                    )
+                }
+            }.onFailure { error ->
+                // Do not trap the user on the setup screen: enter the app and
+                // surface the error there so they can retry from Select location.
+                _uiState.update {
+                    it.copy(
+                        isRefreshing = false,
+                        setupComplete = true,
+                        errorMessage = error.message ?: "Could not load servers",
+                        statusMessage = "Could not load servers, pull to refresh",
+                    )
+                }
+            }
+        }
     }
 
     fun refresh(force: Boolean = true) {

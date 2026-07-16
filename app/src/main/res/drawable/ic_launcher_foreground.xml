@@ -4,36 +4,30 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- APRTR -->
+    <!-- APRTR wordmark, centered in the adaptive-icon safe zone -->
     <path
         android:fillColor="#00000000"
-        android:pathData="M23,53.5L27.8,39.7L32.6,53.5M24.4,49.3L31.2,49.3"
+        android:pathData="M25.2,60.4L29.7,47.6L34.2,60.4M26.5,56.6L32.8,56.6"
         android:strokeWidth="2.8"
         android:strokeColor="#FFFFFF" />
     <path
         android:fillColor="#00000000"
-        android:pathData="M37.5,53.5L37.5,41.1L42.7,41.1C45.2,41.1 45.2,47.1 42.7,47.1L37.5,47.1"
+        android:pathData="M38.6,60.4L38.6,48.9L43.5,48.9C45.8,48.9 45.8,54.5 43.5,54.5L38.6,54.5"
         android:strokeWidth="2.8"
         android:strokeColor="#FFFFFF" />
     <path
         android:fillColor="#00000000"
-        android:pathData="M50.6,53.5L50.6,41.1L55.8,41.1C58.3,41.1 58.3,47.1 55.8,47.1L50.6,47.1M55.5,47.1L58.6,53.5"
+        android:pathData="M50.8,60.4L50.8,48.9L55.7,48.9C58,48.9 58,54.5 55.7,54.5L50.8,54.5M55.4,54.5L58.2,60.4"
         android:strokeWidth="2.8"
         android:strokeColor="#FFFFFF" />
     <path
         android:fillColor="#00000000"
-        android:pathData="M62.3,41.1L71.9,41.1M67.1,41.1L67.1,53.5"
+        android:pathData="M61.7,48.9L70.6,48.9M66.2,48.9L66.2,60.4"
         android:strokeWidth="2.8"
         android:strokeColor="#FFFFFF" />
     <path
         android:fillColor="#00000000"
-        android:pathData="M76.7,53.5L76.7,41.1L82,41.1C84.5,41.1 84.5,47.1 82,47.1L76.7,47.1M81.7,47.1L84.7,53.5"
+        android:pathData="M75.1,60.4L75.1,48.9L80,48.9C82.3,48.9 82.3,54.5 80,54.5L75.1,54.5M79.7,54.5L82.5,60.4"
         android:strokeWidth="2.8"
-        android:strokeColor="#FFFFFF" />
-    <!-- VPN -->
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M45.1,62.5L47.1,68.3L49.2,62.5M52.6,68.3L52.6,63.1L54.8,63.1C55.9,63.1 55.9,65.6 54.8,65.6L52.6,65.6M59.6,68.3L59.6,62.5L62.5,68.3L62.5,62.5"
-        android:strokeWidth="1.2"
         android:strokeColor="#FFFFFF" />
 </vector>

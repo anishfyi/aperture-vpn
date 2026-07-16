@@ -27,6 +27,17 @@
             </intent-filter>
         </activity>
 
+        <!--
+          ics-openvpn's OpenVPNService builds its foreground-notification and
+          graph PendingIntents against "<applicationId>.activities.MainActivity".
+          We keep our activity at the package root, so alias that name to it;
+          without this the status notification points at a missing component.
+        -->
+        <activity-alias
+            android:name=".activities.MainActivity"
+            android:exported="false"
+            android:targetActivity=".MainActivity" />
+
         <service
             android:name="de.blinkt.openvpn.core.OpenVPNService"
             android:exported="true"

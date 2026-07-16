@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import io.github.anishfyi.aperture.ui.ApertureViewModel
 import io.github.anishfyi.aperture.ui.screens.HomeScreen
 import io.github.anishfyi.aperture.ui.screens.ServersScreen
+import io.github.anishfyi.aperture.ui.screens.SetupScreen
 import io.github.anishfyi.aperture.ui.theme.ApertureColors
 
 @Composable
@@ -21,7 +22,12 @@ fun ApertureNavHost(viewModel: ApertureViewModel) {
     var showLocations by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(containerColor = ApertureColors.Background) { padding ->
-        if (showLocations) {
+        if (!uiState.setupComplete) {
+            SetupScreen(
+                statusLine = uiState.setupStatus,
+                modifier = Modifier.padding(padding),
+            )
+        } else if (showLocations) {
             BackHandler { showLocations = false }
             ServersScreen(
                 uiState = uiState,

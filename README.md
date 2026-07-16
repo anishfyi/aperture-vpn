@@ -1,8 +1,6 @@
 <p align="center">
-  <img src="docs/logo.svg" width="150" alt="Aperture VPN logo">
+  <img src="docs/logo.svg" width="360" alt="APRTR">
 </p>
-
-<h1 align="center">APRTR VPN</h1>
 
 Free, open-source Android VPN that aggregates 100+ free OpenVPN profiles from
 [VPN Gate](https://www.vpngate.net/), probes and ranks servers, connects to the
