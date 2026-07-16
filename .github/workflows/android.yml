@@ -43,3 +43,10 @@ jobs:
 
       - name: Assemble debug APK
         run: gradle :app:assembleSkeletonOvpn23Debug --stacktrace
+
+      - name: Upload debug APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: aprtr-debug-apk
+          path: app/build/outputs/apk/skeletonOvpn23/debug/*.apk
+          if-no-files-found: error
