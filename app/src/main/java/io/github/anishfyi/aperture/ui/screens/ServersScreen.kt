@@ -31,6 +31,7 @@ fun ServersScreen(
     uiState: ApertureUiState,
     onRefresh: () -> Unit,
     onConnect: (ServerProfile) -> Unit,
+    onBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val pullState = rememberPullRefreshState(
@@ -39,12 +40,23 @@ fun ServersScreen(
     )
 
     Column(modifier = modifier.fillMaxSize()) {
-        Text(
-            text = "Servers",
+        androidx.compose.foundation.layout.Row(
             modifier = Modifier.padding(16.dp),
-            style = MaterialTheme.typography.headlineMedium,
-            color = ApertureColors.Foreground,
-        )
+            horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = "Back",
+                modifier = Modifier.clickable(onClick = onBack),
+                style = MaterialTheme.typography.titleMedium,
+                color = ApertureColors.Muted,
+            )
+            Text(
+                text = "Select location",
+                style = MaterialTheme.typography.headlineMedium,
+                color = ApertureColors.Foreground,
+            )
+        }
         androidx.compose.foundation.layout.Box(
             modifier = Modifier
                 .fillMaxSize()
