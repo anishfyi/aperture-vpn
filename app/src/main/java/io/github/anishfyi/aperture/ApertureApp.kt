@@ -4,6 +4,7 @@ import android.app.Application
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
+import de.blinkt.openvpn.core.GlobalPreferences
 import de.blinkt.openvpn.core.OpenVPNService
 import de.blinkt.openvpn.core.VpnStatusBootstrap
 
@@ -12,6 +13,11 @@ class ApertureApp : Application() {
     override fun onCreate() {
         super.onCreate()
         CrashLog.install(this)
+        // ics-openvpn normally initialises this in its own Application class,
+        // which we replace. Without it OpenVPNService throws "Global
+        // preferences instance is not set" the moment a connection starts.
+        // Defaults: no minimal UI, do not force-connect, no initial import.
+        GlobalPreferences.setInstance(false, false, false)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             createOpenVpnNotificationChannels()
         }

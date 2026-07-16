@@ -4,30 +4,7 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- APRTR wordmark, centered in the adaptive-icon safe zone -->
     <path
-        android:fillColor="#00000000"
-        android:pathData="M25.2,60.4L29.7,47.6L34.2,60.4M26.5,56.6L32.8,56.6"
-        android:strokeWidth="2.8"
-        android:strokeColor="#FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M38.6,60.4L38.6,48.9L43.5,48.9C45.8,48.9 45.8,54.5 43.5,54.5L38.6,54.5"
-        android:strokeWidth="2.8"
-        android:strokeColor="#FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M50.8,60.4L50.8,48.9L55.7,48.9C58,48.9 58,54.5 55.7,54.5L50.8,54.5M55.4,54.5L58.2,60.4"
-        android:strokeWidth="2.8"
-        android:strokeColor="#FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M61.7,48.9L70.6,48.9M66.2,48.9L66.2,60.4"
-        android:strokeWidth="2.8"
-        android:strokeColor="#FFFFFF" />
-    <path
-        android:fillColor="#00000000"
-        android:pathData="M75.1,60.4L75.1,48.9L80,48.9C82.3,48.9 82.3,54.5 80,54.5L75.1,54.5M79.7,54.5L82.5,60.4"
-        android:strokeWidth="2.8"
-        android:strokeColor="#FFFFFF" />
+        android:fillColor="#FFFFFF"
+        android:pathData="M24.04 85.00 45.68 23.00H62.20L83.96 85.00H69.78L59.99 54.88Q58.19 48.99 56.31 42.54Q54.44 36.10 52.27 28.06H55.61Q53.42 36.11 51.56 42.56Q49.69 49.01 47.86 54.88L37.91 85.00ZM37.74 71.30V61.11H70.28V71.30Z" />
 </vector>

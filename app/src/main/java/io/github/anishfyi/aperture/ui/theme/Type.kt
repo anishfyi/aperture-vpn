@@ -9,34 +9,34 @@ import androidx.compose.ui.text.font.FontWeight
 import io.github.anishfyi.aperture.R
 
 @OptIn(ExperimentalTextApi::class)
-private fun grotesk(weight: FontWeight) = FontFamily(
+private fun inter(weight: FontWeight) = FontFamily(
     Font(
-        R.font.space_grotesk,
+        R.font.inter,
         weight = weight,
         variationSettings = FontVariation.Settings(FontVariation.weight(weight.weight)),
     ),
 )
 
-val Grotesk = grotesk(FontWeight.Normal)
-val GroteskMedium = grotesk(FontWeight.Medium)
-val GroteskBold = grotesk(FontWeight.Bold)
+val Sans = inter(FontWeight.Normal)
+val SansMedium = inter(FontWeight.Medium)
+val SansBold = inter(FontWeight.Bold)
 
 val ApertureTypography: Typography = Typography().run {
     copy(
-        displayLarge = displayLarge.copy(fontFamily = Grotesk),
-        displayMedium = displayMedium.copy(fontFamily = Grotesk),
-        displaySmall = displaySmall.copy(fontFamily = Grotesk),
-        headlineLarge = headlineLarge.copy(fontFamily = GroteskBold),
-        headlineMedium = headlineMedium.copy(fontFamily = GroteskBold),
-        headlineSmall = headlineSmall.copy(fontFamily = GroteskBold),
-        titleLarge = titleLarge.copy(fontFamily = GroteskMedium),
-        titleMedium = titleMedium.copy(fontFamily = GroteskMedium),
-        titleSmall = titleSmall.copy(fontFamily = GroteskMedium),
-        bodyLarge = bodyLarge.copy(fontFamily = Grotesk),
-        bodyMedium = bodyMedium.copy(fontFamily = Grotesk),
-        bodySmall = bodySmall.copy(fontFamily = Grotesk),
-        labelLarge = labelLarge.copy(fontFamily = GroteskMedium),
-        labelMedium = labelMedium.copy(fontFamily = GroteskMedium),
-        labelSmall = labelSmall.copy(fontFamily = GroteskMedium),
+        displayLarge = displayLarge.copy(fontFamily = Sans),
+        displayMedium = displayMedium.copy(fontFamily = Sans),
+        displaySmall = displaySmall.copy(fontFamily = Sans),
+        headlineLarge = headlineLarge.copy(fontFamily = SansBold),
+        headlineMedium = headlineMedium.copy(fontFamily = SansBold),
+        headlineSmall = headlineSmall.copy(fontFamily = SansBold),
+        titleLarge = titleLarge.copy(fontFamily = SansMedium),
+        titleMedium = titleMedium.copy(fontFamily = SansMedium),
+        titleSmall = titleSmall.copy(fontFamily = SansMedium),
+        bodyLarge = bodyLarge.copy(fontFamily = Sans),
+        bodyMedium = bodyMedium.copy(fontFamily = Sans),
+        bodySmall = bodySmall.copy(fontFamily = Sans),
+        labelLarge = labelLarge.copy(fontFamily = SansMedium),
+        labelMedium = labelMedium.copy(fontFamily = SansMedium),
+        labelSmall = labelSmall.copy(fontFamily = SansMedium),
     )
 }

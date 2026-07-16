@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/logo.svg" width="360" alt="APRTR">
+  <img src="docs/logo.svg" width="320" alt="APRTR">
 </p>
 
 Free, open-source Android VPN that aggregates 100+ free OpenVPN profiles from
