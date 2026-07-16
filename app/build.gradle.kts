@@ -11,8 +11,8 @@ android {
         applicationId = "io.github.anishfyi.aperture"
         minSdk = 24
         targetSdk = 35
-        versionCode = 4
-        versionName = "1.3.0"
+        versionCode = 5
+        versionName = "1.3.1"
     }
 
     flavorDimensions += listOf("implementation", "ovpnimpl")
@@ -47,6 +47,14 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
+        jniLibs {
+            // ics-openvpn ships the openvpn binary as libovpnexec.so and
+            // exec()s it at runtime, which requires the native libs to be
+            // extracted to disk (extractNativeLibs=true), not loaded from the
+            // compressed APK. Without this, connecting fails with
+            // "Cannot run program .../libovpnexec.so: No such file".
+            useLegacyPackaging = true
         }
     }
 }
