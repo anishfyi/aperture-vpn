@@ -37,13 +37,24 @@
       text-transform: uppercase;
       color: var(--muted);
     }
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+    .brand-mark {
+      width: clamp(3.2rem, 12vw, 4.5rem);
+      height: clamp(3.2rem, 12vw, 4.5rem);
+      flex-shrink: 0;
+    }
     .brand {
       font-family: var(--display);
       font-weight: 500;
       font-size: clamp(3.4rem, 15vw, 6rem);
       letter-spacing: 0.3em;
-      margin: 1.4rem 0 0 -0.3em;
-      padding-left: 0.3em;
+      margin: 0 -0.3em 0 0;
+      padding-left: 0.15em;
       line-height: 1;
     }
     .tagline {
@@ -118,7 +129,12 @@
   <div class="wrap">
     <header>
       <p class="eyebrow">Free OpenVPN for Android</p>
-      <h1 class="brand">APRTR</h1>
+      <div class="brand-row">
+        <svg class="brand-mark" viewBox="0 0 100 100" role="img" aria-label="Aperture VPN dragon mark">
+          <path fill="#ffffff" fill-rule="evenodd" d="M25.93 53.34L28.6 39.97L33.95 30.61L32.61 37.3L40.64 27.94L39.3 35.95L43.31 38.63L55.35 37.3L67.39 42.65L74.07 49.33L67.39 50.67L74.07 54.69L71.4 60.03L60.7 64.05L55.35 72.06L45.99 65.38L36.63 64.05L28.6 58.69Z M47.32 45.31L56.69 50.67L47.32 56.02L37.96 50.67Z"/>
+        </svg>
+        <h1 class="brand">APRTR</h1>
+      </div>
       <p class="tagline">One tap to the best free server. AdGuard DNS built in. No accounts, no trackers.</p>
     </header>
 
