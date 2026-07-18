@@ -1,6 +1,4 @@
 <p align="center">
-  <img src="docs/logo.svg" width="200" alt="APRTR dragon mark">
-  <br><br>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/aprtr-wordmark-dark.svg">
     <img alt="APRTR" src="docs/aprtr-wordmark-light.svg" width="260">
