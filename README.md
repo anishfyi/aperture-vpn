@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/logo.svg" width="320" alt="APRTR — dragon mark">
+  <img src="docs/logo.svg" width="320" alt="APRTR dragon mark">
 </p>
 
 Free, open-source Android VPN that aggregates 100+ free OpenVPN profiles from
