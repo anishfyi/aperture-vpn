@@ -1,4 +1,6 @@
 <p align="center">
+  <img src="docs/logo.svg" alt="APRTR spartan helmet" width="88">
+  <br><br>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/aprtr-wordmark-dark.svg">
     <img alt="APRTR" src="docs/aprtr-wordmark-light.svg" width="260">
