@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Aperture VPN dragon mark">
-  <rect width="100" height="100" fill="#0B1410"/>
-  <path fill="#ffffff" fill-rule="evenodd" d="M25.93 53.34L28.6 39.97L33.95 30.61L32.61 37.3L40.64 27.94L39.3 35.95L43.31 38.63L55.35 37.3L67.39 42.65L74.07 49.33L67.39 50.67L74.07 54.69L71.4 60.03L60.7 64.05L55.35 72.06L45.99 65.38L36.63 64.05L28.6 58.69Z M47.32 45.31L56.69 50.67L47.32 56.02L37.96 50.67Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="APRTR">
+  <title>APRTR</title>
+  <rect width="100" height="100" rx="22" fill="#0b0b0b"/>
+  <g transform="translate(22.562 82.000) scale(0.041857 -0.041857)">
+    <path fill="#ffffff" stroke="#ffffff" stroke-width="30" stroke-linejoin="round" d="M54 0 936 1529H1075L1265 0H935L809 1234L99 0ZM-95 0V39H345V0ZM705 0V39H1406V0ZM365 470V509H1024V470Z"/>
+  </g>
 </svg>
