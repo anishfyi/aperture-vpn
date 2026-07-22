@@ -31,8 +31,13 @@ expects them.
 
 ## Web / docs counterparts
 
-| File              | Role                                      |
-|-------------------|-------------------------------------------|
-| `docs/favicon.svg`| Site favicon (dragon mark)                |
-| `docs/logo.svg`   | README lockup (dragon + APRTR wordmark)   |
-| `docs/index.html` | Inline dragon mark next to the brand name |
+| File              | Role                                                      |
+|-------------------|-----------------------------------------------------------|
+| `docs/favicon.svg`| Site favicon: italic Bodoni Moda “A” on a dark tile        |
+| `docs/logo.svg`   | README lockup (dragon + APRTR wordmark)                   |
+| `docs/index.html` | Landing page: type only, no mark (Space Grotesk wordmark)  |
+
+The favicon “A” is a Bodoni Moda 700-italic outline (SIL OFL 1.1), lifted as a
+path so it renders without a webfont, with a small uniform stroke so the Didone
+hairlines survive at 16 px. The page itself self-hosts Space Grotesk and Space
+Mono from `docs/assets/fonts/` (licences alongside).
