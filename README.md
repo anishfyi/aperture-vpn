@@ -11,7 +11,7 @@ Free, open-source Android VPN that aggregates 100+ free OpenVPN profiles from
 [VPN Gate](https://www.vpngate.net/), probes and ranks servers, connects to the
 best one with one tap via embedded [ics-openvpn](https://github.com/schwabe/ics-openvpn),
 and forces [AdGuard DNS](https://adguard-dns.io/) for ad and tracker blocking.
-Strict black-and-white UI with a geometric dragon mark.
+Strict black-and-white UI with a spartan helmet mark.
 
 - **Download:** [Latest release APK](https://github.com/anishfyi/aperture-vpn/releases/latest)
 - **Landing page:** [GitHub Pages](https://anishfyi.github.io/aperture-vpn/)
